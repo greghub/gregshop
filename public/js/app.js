@@ -1,0 +1,1 @@
+var gregtestshopApp = angular.module('gregtestshopApp', ['mainCtrl', 'components', 'productService']); 

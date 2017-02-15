@@ -1,0 +1,16 @@
+<div class="product" ng-class="(product.is_featured == 'true') ? 'product-wide' : ''">
+
+    <div class="product--image"><img ng-src="public/img/product-{{index % 2 + 1}}.jpg"></div>
+    <div class="product--content">
+        <div class="product--price">
+            <div class="list-price">${{product.price}}</div>
+            <div class="you-save">List price: ${{product.list_price}} ({{ (product.list_price - product.price) * 100 / product.list_price | number:0 }}% off)</div>
+        </div>
+        <div class="separator"></div>
+        <a class="product--title" href="#">{{product.title}}</a>
+        <div class="product--description" ng-if="(product.is_featured == 'true')">{{product.description}}</div>
+        <div class="separator -last" ng-if="(product.is_featured == 'true')"></div>
+        <rating data="{{product.rating}}"></rating>
+    </div>
+
+</div>

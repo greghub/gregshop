@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Star Half</title>
+  <defs>
+    <path id="a" d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236L8 12z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="b" fill="#fff">
+      <use xlink:href="#a"/>
+    </mask>
+    <use fill="#FFC145" xlink:href="#a"/>
+    <path fill="#D8D8D8" d="M8 0h8v15H8z" mask="url(#b)"/>
+  </g>
+</svg>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Greg test shop for GoFanbase</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="public/css/normalize.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="public/css/app.css">
+    </head>
+    <body ng-app="gregtestshopApp" ng-controller="mainController">
+
+        <header>
+
+            <nav>
+                <div>       
+                    <a class="logo" href="#">Greg test shop for GoFanbase</a>
+                </div>
+            </nav>
+
+            <section class="banner banner-default">
+
+                <div class="add-product" ng-class="{'open': formOpen}">
+                    <div class="button-copy" ng-show="!formOpen" ng-click="formOpen = true">Add Product</div>
+                    <form ng-submit="submitProduct()" enctype="multipart/form-data">
+                        
+                        <div class="form--field">
+                            <label>Product Title *</label>
+                            <input type="text" class="form--element" name="title" ng-model="productData.title" placeholder="Title" required>
+                        </div>
+                        <div class="form--container -inline">
+                            <div class="form--field -short">
+                                <label>Product Rating *</label>
+                                <input type="number" class="form--element"  name="rating" ng-model="productData.rating" placeholder="Rating" required min="0" max="5" step="0.5">
+                            </div>
+                            <div class="form--field -short">
+                                <label>Product Price *</label>
+                                <span class="form--price">$</span>
+                                <input type="text" class="form--element" name="price" ng-model="productData.price" placeholder="Price" required min="0" max="500" pattern="\d+(\.\d{2})?">
+                            </div>
+                            <div class="form--field -short">
+                                <label>List Price *</label>
+                                <span class="form--price">$</span>
+                                <input type="text" class="form--element" name="list_price" ng-model="productData.list_price" placeholder="List Price" required min="0" max="500" pattern="\d+(\.\d{2})?">
+                            </div>
+                        </div>
+                        <div class="form--field">
+                            <label>
+                                Is Featured
+                                <input type="checkbox" name="is_featured" ng-model="productData.is_featured">
+                            </label>
+                            <p class="featured-note">If Is Featured is selected the product will appear in a large card.</p>
+                        </div>
+                        <div class="form--field">
+                            <label>Product Description</label>
+                            <textarea class="form--element textarea" ng-model="productData.description" placeholder="Description">
+                                
+                            </textarea>
+                        </div>
+                     
+                        <button type="submit" class="submit-button">Add Product</button>
+                        <div class="cancel"><span ng-click="cancel()">Cancel</span></div>
+                    </form>
+                </div>
+
+            </section>
+
+        </header>
+
+        <main>
+
+            <section>
+
+                <div class="container">
+                
+                    <div class="heading">
+                        <span class="h1">Recents</span>
+                        <a class="see-all -blue" ng-click="export()">Export To CSV</a>
+                    </div>
+
+                    <div class="products">
+
+                        <product data="product" index="{{$index+1}}" ng-repeat="product in products"></product>
+
+                        <div class="announcement" ng-show="!loading">
+                            <div class="content">
+                                <h1>Greg's actual</h1>
+                                <h3 class="subtitle">Shopping List</h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <footer>
+                <div class="container">
+                    <div class="separator"></div>
+                    <div class="footer">Greg test shop for GoFanbase &copy; 2017</div>
+                </div>
+            </footer>
+
+        </main>
+
+        <script>var BASE_PATH = "http://gregapi.app";</script>
+        <script src="public/js/angular.min.js"></script>
+        <script src="public/js/components/productComponents.js"></script>
+        <script src="public/js/services/services.js"></script>
+        <script src="public/js/controllers/mainController.js"></script>
+        <script src="public/js/app.js"></script>
+    
+    </body>
+</html>
